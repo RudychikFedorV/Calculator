@@ -10,45 +10,39 @@
 </head>
 
 <body>
-    <form action="/" class="calculator" name="calculator">
+    <form action="/" class="calculator">
         <section class="calculator__sections">
-            <input type="textfield" name="ans" value="" class="calculator__solution">
+            <input type="text" id="display" class="calculator__solution" readonly>
             <div class="calculator__section1">
-                <input type="button" value="7" onClick="document.calculator.ans.value+='7'">
-                <input type="button" value="8" onClick="document.calculator.ans.value+='8'">
-                <input type="button" value="9" onClick="document.calculator.ans.value+='9'">
+                <input type="button" value="7" onclick="addToDisplay('7')">
+                <input type="button" value="8" onclick="addToDisplay('8')">
+                <input type="button" value="9" onclick="addToDisplay('9')">
             </div>
             <div class="calculator__section2">
-                <input type="button" value="4" onClick="document.calculator.ans.value+='4'">
-                <input type="button" value="5" onClick="document.calculator.ans.value+='5'">
-                <input type="button" value="6" onClick="document.calculator.ans.value+='6'">
+                <input type="button" value="4" onclick="addToDisplay('4')">
+                <input type="button" value="5" onclick="addToDisplay('5')">
+                <input type="button" value="6" onclick="addToDisplay('6')">
             </div>
             <div class="calculator__section3">
-                <input type="button" value="1" onClick="document.calculator.ans.value+='1'">
-                <input type="button" value="2" onClick="document.calculator.ans.value+='2'">
-                <input type="button" value="3" onClick="document.calculator.ans.value+='3'">
+                <input type="button" value="1" onclick="addToDisplay('1')">
+                <input type="button" value="2" onclick="addToDisplay('2')">
+                <input type="button" value="3" onclick="addToDisplay('3')">
             </div>
             <div class="calculator__section4">
-                <input type="reset" value="C">
-                <input type="button" value="0" onClick="document.calculator.ans.value+='0'">
-                <input type="button" value="." onClick="document.calculator.ans.value+='.'">
+                <input type="reset" value="C" onclick="clearDisplay()">
+                <input type="button" value="0" onclick="addToDisplay('0')">
+                <input type="button" value="." onclick="addToDisplay('.')">
             </div>
         </section>
         <div class="calculator__block">
-            <input type="button" value="/" onClick="document.calculator.ans.value+='/'">
-            <input type="button" value="*" onClick="document.calculator.ans.value+='*'">
-            <input type="button" value="-" onClick="document.calculator.ans.value+='-'">
-            <input type="button" value="+" onClick="document.calculator.ans.value+='+'">
-            <input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
-            <!-- document властивість об'єкту window яка являється об'єктом для роботи з документом DOM. -->
-            <!-- отримує значення елемента форми з ім'ям "calculator" і атрибутом "ans", 
-                імовірно, це поле введення, в якому міститься вираз для обчислення -->
-            <!-- eval(): Це вбудована функція JavaScript, яка приймає рядок та інтерпретує її як вираз JavaScript. 
-                В даному випадку eval() використовується для обчислення значення рядка, що містить математичний вираз. -->
-            <!-- Після обчислення значення результат присвоюється назад у поле введення з ім'ям "ans". Таким чином, 
-                при натисканні на кнопку "=", вираз у полі введення буде обчислено, а результат буде відображено в цьому ж полі введення. -->
+            <input type="button" value="/" onclick="addToDisplay('/')">
+            <input type="button" value="*" onclick="addToDisplay('*')">
+            <input type="button" value="-" onclick="addToDisplay('-')">
+            <input type="button" value="+" onclick="addToDisplay('+')">
+            <input type="button" value="=" onclick="calculate()">
         </div>
     </form>
+    <script src="./index.js"></script>
 </body>
 
 </html>
